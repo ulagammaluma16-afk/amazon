@@ -1,48 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyPilot AI | Asset Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyPilot AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="app-container">
-    <header class="app-header">
-        <h1>StudyPilot AI</h1>
-        <p>Convert technical notes into structured study assets.</p>
-    </header>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>📚 StudyPilot <span>AI</span></h2>
+      <p class="tagline">Plan · Learn · Achieve</p>
+      <button class="nav active">🏠 Home</button>
+      <button class="nav" onclick="focusTask()">✅ My Tasks</button>
+      <button class="nav" onclick="makePlan()">📅 Study Plan</button>
+      <button class="nav" onclick="askAssistant()">✨ Study Assistant</button>
+      <div class="motivation">
+        🎓 <h3>Dream big!</h3>
+        <p>Small steps every day lead to big results. 💜</p>
+      </div>
+    </aside>
 
     <main>
-        <div class="input-section" id="input-section">
-            <label for="study-notes">Source Material</label>
-            <textarea id="study-notes" placeholder="Paste ECE coursework text here (e.g., semiconductor physics, IoT systems, or signal processing)..."></textarea>
-            
-            <button id="generate-btn">
-                <span id="btn-text">Generate Assets</span>
-                <span id="btn-spinner" class="spinner hidden"></span>
-            </button>
+      <header>
+        <div>
+          <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+          <h1>Welcome to StudyPilot AI ✨</h1>
+          <p>Make today count. One task at a time.</p>
         </div>
+        <div class="avatar">S</div>
+      </header>
 
-        <div class="results-section hidden" id="results-area">
-            <div class="result-block">
-                <h2>Executive Summary</h2>
-                <div class="summary-card" id="ai-summary"></div>
-            </div>
-
-            <div class="result-block">
-                <h2>Practice Flashcards</h2>
-                <p class="instruction-text">Click a card to reveal the answer.</p>
-                <div class="flashcard-grid" id="flashcards-container"></div>
-            </div>
-            
-            <button id="reset-btn" class="secondary-btn">Process New Material</button>
+      <section class="hero">
+        <div>
+          <p>✦ YOUR STUDY COMPANION</p>
+          <h2>Dream big.<br><span>Study smarter.</span></h2>
+          <p>Turn your goals into a plan you can follow.</p>
+          <button class="white-btn" onclick="makePlan()">Build my study plan →</button>
         </div>
+        <div class="hero-art">📚<br>🎓<br>✨</div>
+      </section>
+
+      <section class="stats">
+        <article class="stat purple">
+          <p>Tasks completed</p>
+          <h2 id="completed">0</h2>
+          <small>Keep up the great work!</small>
+        </article>
+        <article class="stat blue">
+          <p>Tasks remaining</p>
+          <h2 id="remaining">0</h2>
+          <small>One step at a time</small>
+        </article>
+        <article class="stat pink">
+          <p>Daily progress</p>
+          <h2 id="percent">0%</h2>
+          <div class="track"><div id="bar"></div></div>
+        </article>
+      </section>
+
+      <section class="panel" id="taskSection">
+        <h2>📝 Today's Tasks</h2>
+        <form id="taskForm">
+          <input id="taskInput" placeholder="What do you want to study?" required>
+          <button class="primary" type="submit">＋ Add Task</button>
+        </form>
+        <ul id="taskList"></ul>
+      </section>
+
+      <section class="panel plan">
+        <h2>📅 Your Study Plan</h2>
+        <p id="planText">Add your tasks, then generate your study plan.</p>
+        <button class="primary" onclick="makePlan()">✦ Create my plan</button>
+      </section>
+
+      <section class="panel" id="assistant">
+        <h2>✨ Study Assistant</h2>
+        <p>Get simple study tips and ideas.</p>
+        <form id="askForm">
+          <input id="question" placeholder="Ask for a study tip..." required>
+          <button class="primary" type="submit">Ask</button>
+        </form>
+        <p id="answer"></p>
+        <small>This demo uses built-in tips, not a live AI API.</small>
+      </section>
+      <footer>Made with 💜 for curious minds · StudyPilot AI</footer>
     </main>
-</div>
-
-<script src="script.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
