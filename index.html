@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPilot AI | Asset Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <h1>StudyPilot AI</h1>
+        <p>Convert technical notes into structured study assets.</p>
+    </header>
+
+    <main>
+        <div class="input-section" id="input-section">
+            <label for="study-notes">Source Material</label>
+            <textarea id="study-notes" placeholder="Paste ECE coursework text here (e.g., semiconductor physics, IoT systems, or signal processing)..."></textarea>
+            
+            <button id="generate-btn">
+                <span id="btn-text">Generate Assets</span>
+                <span id="btn-spinner" class="spinner hidden"></span>
+            </button>
+        </div>
+
+        <div class="results-section hidden" id="results-area">
+            <div class="result-block">
+                <h2>Executive Summary</h2>
+                <div class="summary-card" id="ai-summary"></div>
+            </div>
+
+            <div class="result-block">
+                <h2>Practice Flashcards</h2>
+                <p class="instruction-text">Click a card to reveal the answer.</p>
+                <div class="flashcard-grid" id="flashcards-container"></div>
+            </div>
+            
+            <button id="reset-btn" class="secondary-btn">Process New Material</button>
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
